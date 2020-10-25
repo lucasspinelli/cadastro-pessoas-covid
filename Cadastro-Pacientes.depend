@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1603650771 source:c:\users\richard hyppolito\desktop\faculdade\cadastro-pacientes\main.c
+	<stdio.h>
+	<stdlib.h>
+
