@@ -1,30 +1,35 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h> //Biblioteca para usar a funçao strcmp
+#include<windows.h>
+#include<conio.h>
 
 int main()
-{   char login[15]; //Tem que ter mais espaço que a string. Pelo menos 1 a mais que a palavra.
-    char login1[15]; //Pode ser do mesmo tamanho que o login
-    char senha[15];
-    char senha1[15];
+{      char c;
+       char login[20];
+       char senha[20];
+       int a=10;
+       int i=0;
+       int verifica_senha=0;
+      while(verifica_senha==0){
+       printf("\n\t\tNASA\n\n login: ");
+       //fflush(stdin);  //Limpando o buffer do teclado
+       gets(login);
+       printf("\n senha: ");
+       while((c=getch())!=13){ //13 é o valor de ENTER na tabela ASCII
+           senha[i]=c;
+           i++;
+           printf("*");      //imprime o * Anterisco
+           }
+          senha[i]='\0';
+          i=0;
+       system("cls");
+       a= strcmp(senha,"nunes"); //
+       if(a==0){printf("SENHA CORRETA");system("color 0a");verifica_senha=1;Beep(1500,2000);}
+           else{printf("%s SENHA ERRADA\n",senha);system("color 0c");Beep(1200,200);}
+       printf("\n");
 
-    printf("Bem vindo ao sistema de Cadastro de Pacientes\n");
-    printf("Por favor defina seu User para Login: \n");
-    scanf("%s", login);
-    printf("Por favor defina uma Senha: \n");
-    scanf("%s", senha);
-    system("cls");
-    printf("Para logar, por favor, entre com as credenciais cadastradas\n");
-    printf("------------------------------------------------------------\n");
-    printf("LOGIN: ");
-    scanf("%s",login1); //String se lê com %s
-    printf("SENHA: ");
-    scanf("%s", senha1);
-    if (strcmp(login, login1) == 0 && strcmp(senha, senha1) == 0) //strcmp() é uma função da biblioteca string.h que compara 2 strings. Se for igual a 0 é porque as duas são iguais.
-    {
-    	printf("Logado\n");
-    }
-    else
-    {
-    	printf("error\n");
-    }
+       }
+       system("pause");
+       return 0;
 }
