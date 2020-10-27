@@ -3,6 +3,29 @@
 #include<string.h> //Biblioteca para usar a funçao strcmp
 #include<windows.h>
 #include<conio.h>
+#define SIZE 2000
+/* Começo Matriz*/
+
+char name[SIZE][50];
+char email[SIZE][50];
+int cpf[SIZE][11];
+int birthDay[SIZE][2];
+int birthMonth[SIZE][2];
+int birthYear[SIZE][4];
+int phoneNumber[SIZE][15];
+char street[SIZE][50];
+int streetNumber[SIZE][50];
+char neighborhood[SIZE][50];
+char city[SIZE][20];
+char state[SIZE][5];
+int cep[SIZE][10];
+int diagnosisDay[SIZE][2];
+int diagnosisMonth[SIZE][2];
+int diagnosisYear[SIZE][4];
+char comorbidity[SIZE][20];
+char operation;
+
+/*FIM MATRIZ*/
 
 int main()
 {
@@ -15,7 +38,7 @@ int main()
         int verifica_senha=0;
         int quantidade=0;
         int option = 1;
-    /*FUM VARIAVEIS*/
+    /*FiM VARIAVEIS*/
        /*FUNÇÕES*/
        int read_option(){ // Ler opções do programa
             int x;
@@ -38,6 +61,58 @@ int main()
             printf("%s",mensagem);
             getch();
         }
+
+        void cadastro (){
+            static int line;
+            do {
+
+                printf("\nDigite o Nome do Paciente: ");
+                scanf ("%s", &name[line]);
+                printf("\nDigite o Email do Paciente: ");
+                scanf ("%s", &email[line]);
+                printf("\nDigite o CPF do Paciente ( Somente Numeros ): ");
+                scanf ("%d", &cpf[line]);
+                printf("\nQual Dia o Paciente nasceu?(DD): ");
+                scanf ("%d", &birthDay[line]);
+                printf("\nQual Mes o Paciente nasceu?(MM): ");
+                scanf ("%d", &birthMonth[line]);
+                printf("\nQual Ano o Paciente nasceu?(AAAA): ");
+                scanf ("%d", &birthYear[line]);
+                printf("\nDigite o telefone do Paciente ( Somente Numeros ):");
+                scanf ("%d", &phoneNumber[line]);
+                printf("\nDigite a rua em que o Paciente mora: ");
+                scanf ("%s", &street[line]);
+                system("pause");
+                printf("\nQual o numero da rua?: ");
+                scanf ("%d", &streetNumber[line]);
+                printf("\nEm qual bairro fica essa rua?: ");
+                scanf ("%s", &neighborhood[line]);
+                printf("\nCidade do Paciente: ");
+                scanf ("%s", &city[line]);
+                printf("\nQual Estado o Paciente mora? : ");
+                scanf ("%s", &state[line]);
+                system("pause");
+                printf("\nCEP do Paciente: ");
+                scanf ("%d", &cep[line]);
+                system("pause");
+                printf("\nQual Dia do diagnostico?(DD): ");
+                scanf ("%d", &diagnosisDay[line]);
+                system("pause");
+                printf("\nQual Mes do diagnostico?(MM): ");
+                scanf ("%d", &diagnosisMonth[line]);
+                printf("\nQual Ano do diagnostico?(AAAA): ");
+                scanf ("%d", &diagnosisYear[line]);
+                system("pause");
+                printf("\n O paciente tem alguma comorbidade?");
+                scanf ("%s", &comorbidity[line]);
+                system("pause");
+                printf("\n Digite 1 para cadastrar outro paciente, ou 0 para sair:  ");
+                scanf ("%s", &operation);
+                line++;
+
+            } while(operation==1);
+        }
+
         /*FIM FUNÇÕES*/
       while(verifica_senha==0){
        printf("\n\t\tCADASTRO DE PACIENTE\n\n login: ");
@@ -79,27 +154,22 @@ int main()
         switch (option)
         {
            case 1: // 1- Cadastrar Paciente
-               printf("o Chico e gay 1\n");
+               cadastro();
              break;
 
            case 2: // 2- Consultar Paciente
-                 printf("o Chico e gay 2\n");
              break;
 
            case 3:  // 3- Alterar Paciente
-                 printf("o Chico e gay 3\n");
              break;
 
            case 4:  // 4- Excluir Paciente
-                 printf("o Chico e gay 4\n");
              break;
 
            case 5:  // 5- Pesquisar Paciente
-                  printf("o Chico e gay 5\n");
              break;
 
            case 6:  // 6- Ordernar Paciente Orderm Alfabética
-                  printf("o Chico e gay 6\n");
              break;
 
            default:
