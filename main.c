@@ -66,48 +66,90 @@ int main()
             static int line;
             do {
 
-                printf("\nDigite o Nome do Paciente: ");
-                scanf ("%s", &name[line]);
-                printf("\nDigite o Email do Paciente: ");
-                scanf ("%s", &email[line]);
-                printf("\nDigite o CPF do Paciente ( Somente Numeros ): ");
-                scanf ("%d", &cpf[line]);
-                printf("\nQual Dia o Paciente nasceu?(DD): ");
-                scanf ("%d", &birthDay[line]);
-                printf("\nQual Mes o Paciente nasceu?(MM): ");
-                scanf ("%d", &birthMonth[line]);
-                printf("\nQual Ano o Paciente nasceu?(AAAA): ");
-                scanf ("%d", &birthYear[line]);
-                printf("\nDigite o telefone do Paciente ( Somente Numeros ):");
-                scanf ("%d", &phoneNumber[line]);
-                printf("\nDigite a rua em que o Paciente mora: ");
-                scanf ("%s", &street[line]);
-                system("pause");
-                printf("\nQual o numero da rua?: ");
-                scanf ("%d", &streetNumber[line]);
-                printf("\nEm qual bairro fica essa rua?: ");
-                scanf ("%s", &neighborhood[line]);
-                printf("\nCidade do Paciente: ");
-                scanf ("%s", &city[line]);
-                printf("\nQual Estado o Paciente mora? : ");
-                scanf ("%s", &state[line]);
-                system("pause");
-                printf("\nCEP do Paciente: ");
-                scanf ("%d", &cep[line]);
-                system("pause");
-                printf("\nQual Dia do diagnostico?(DD): ");
-                scanf ("%d", &diagnosisDay[line]);
-                system("pause");
-                printf("\nQual Mes do diagnostico?(MM): ");
-                scanf ("%d", &diagnosisMonth[line]);
-                printf("\nQual Ano do diagnostico?(AAAA): ");
-                scanf ("%d", &diagnosisYear[line]);
-                system("pause");
-                printf("\n O paciente tem alguma comorbidade?");
-                scanf ("%s", &comorbidity[line]);
-                system("pause");
-                printf("\n Digite 1 para cadastrar outro paciente, ou 0 para sair:  ");
-                scanf ("%s", &operation);
+                printf("Digite o Nome do Paciente\n: ");
+                scanf (" %s", &name[line]);
+
+                fflush(stdin);
+
+                printf("Digite o Email do Paciente:\n ");
+                scanf (" %s", &email[line]);
+
+                fflush(stdin);
+
+                printf("Digite o CPF do Paciente ( Somente Numeros )\n: ");
+                scanf (" %d", &cpf[line]);
+
+                fflush(stdin);
+
+                printf("Qual Dia o Paciente nasceu?(DD):\n ");
+                scanf (" %d", &birthDay[line]);
+
+                fflush(stdin);
+
+                printf("Qual Mes o Paciente nasceu?(MM):\n");
+                scanf (" %d", &birthMonth[line]);
+
+                fflush(stdin);
+
+                printf("Qual Ano o Paciente nasceu?(AAAA):\n ");
+                scanf (" %d", &birthYear[line]);
+
+                fflush(stdin);
+
+                printf("Digite o telefone do Paciente ( Somente Numeros ):\n");
+                scanf (" %d", &phoneNumber[line]);
+
+                fflush(stdin);
+
+                printf("Digite a rua em que o Paciente mora:\n");
+                scanf (" %s", &street[line]);
+
+                fflush(stdin);
+
+                printf("Qual o numero da rua?:\n");
+                scanf (" %d", &streetNumber[line]);
+
+                fflush(stdin);
+
+                printf("Em qual bairro fica essa rua?:\n ");
+                scanf (" %s", &neighborhood[line]);
+
+                fflush(stdin);
+
+                printf("Cidade do Paciente:\n");
+                scanf (" %s", &city[line]);
+
+                fflush(stdin);
+
+                printf("Qual Estado o Paciente mora?:\n");
+                scanf (" %s", &state[line]);
+
+                fflush(stdin);
+
+                printf("CEP do Paciente:\n ");
+                scanf (" %d", &cep[line]);
+
+                fflush(stdin);
+
+                printf("Qual Dia do diagnostico?(DD):\n ");
+                scanf (" %d", &diagnosisDay[line]);
+
+                fflush(stdin);
+
+                printf("Qual Mes do diagnostico?(MM):\n ");
+                scanf (" %d", &diagnosisMonth[line]);
+
+                fflush(stdin);
+
+                printf("Qual Ano do diagnostico?(AAAA)\n: ");
+                scanf (" %d", &diagnosisYear[line]);
+
+                fflush(stdin);
+
+                printf("O paciente tem alguma comorbidade? Se sim, qual?\n");
+                scanf (" %s", &comorbidity[line]);
+                printf("Digite 1 para cadastrar outro paciente, ou 0 para sair:\n  ");
+                scanf (" %s", &operation);
                 line++;
 
             } while(operation==1);
@@ -128,8 +170,8 @@ int main()
           i=0;
        system("cls");
        a= strcmp(senha,"chico"); //
-       if(a==0){printf("SENHA CORRETA");system("color 0a");verifica_senha=1;Beep(1500,2000);}
-           else{printf("SENHA INCORRETA\n");system("color 0c");Beep(1200,200);}
+       if(a==0){printf("SENHA CORRETA");system("color 0a");verifica_senha=1;Beep(1200,200);}
+           else{printf("SENHA INCORRETA\n");system("color 0c");Beep(1500,2000);}
        printf("\n");
 
        }
