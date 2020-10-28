@@ -23,12 +23,11 @@ int diagnosisDay[SIZE][2];
 int diagnosisMonth[SIZE][2];
 int diagnosisYear[SIZE][4];
 char comorbidity[SIZE][20];
-char operation;
+int operation;
 
 /*FIM MATRIZ*/
 
-int main()
-{
+int main(void){
     /*VARIAVEIS*/
         char c;
         char login[20];
@@ -55,12 +54,12 @@ int main()
             scanf("%d",&x);
             printf("\n");
             return x;
-        }
+        } /*FIM OPCAO*/
 
         void pause(char mensagem[]){
             printf("%s",mensagem);
             getch();
-        }
+        } /*FIM PAUSE*/
 
         void cadastro (){
             static int line;
@@ -149,11 +148,56 @@ int main()
                 printf("O paciente tem alguma comorbidade? Se sim, qual?\n");
                 scanf (" %s", &comorbidity[line]);
                 printf("Digite 1 para cadastrar outro paciente, ou 0 para sair:\n  ");
-                scanf (" %s", &operation);
+                scanf (" %d", &operation);
                 line++;
 
             } while(operation==1);
-        }
+        } /*FIM CADASTRO*/
+
+        void search (){ /*Começo pesquisa*/
+
+            int searchCpf;
+            char searchEmail[50];
+            int i;
+
+            do {
+                printf("\n Para pesquisar por CPF digite 1, ou para pesquisar por EMAIL digite 2");
+                scanf("\n%d", &operation);
+
+                switch(operation){
+                case 1:
+                    printf("\n Digite o CPF: ");
+                    scanf("\n%d", &searchCpf);
+                    for (i=0; i>SIZE; i++){
+                        if (cpf[i]==searchCpf){
+                        printf("\nNome: %s\nEmail: %s\nCPF: %d", &name[i], &email[i], &cpf[i]);
+                        }else{
+                            printf("\n NENHUM REGISTRO ENCONTRADO");
+                        }
+                    }
+                    break;
+                case 2:
+                    printf("\n Digite o EMAIL: ");
+                    scanf("\n%s", &searchEmail);
+                    for (i=0; i>SIZE; i++){
+                        if (strcmp(email[i], searchEmail)==0){
+                            printf("\nNome: %s\nEmail: %s\nCPF: %d", &name[i], &email[i], &cpf[i]);
+                        } else{
+                            printf("\n NENHUM REGISTRO ENCONTRADO");
+                        }
+                    }
+
+                    break;
+
+                default:
+                     printf("\n OPCAO INVALIDA");
+                    break;
+                }
+                printf("\nDigite 1 para continuar pesquisando");
+                scanf("%d", &operation);
+            }while(operation==1);
+
+        } /*FIM PESAUISA*/
 
         /*FIM FUNÇÕES*/
       while(verifica_senha==0){
@@ -200,6 +244,7 @@ int main()
              break;
 
            case 2: // 2- Consultar Paciente
+               search();
              break;
 
            case 3:  // 3- Alterar Paciente
