@@ -9,6 +9,7 @@
 int main(void){
     /*VARIAVEIS*/
         FILE *cfPtr;
+        FILE *pacientesDB;
 
         int opcao,opcao1,opcao2,opcao3,opcao4, opcaom,i,qtd;
 
@@ -96,7 +97,8 @@ int main(void){
 
 
 
-                            cfPtr = fopen("pacientes.txt","a");
+                            cfPtr = fopen("pacientes-risco.txt","a");
+                            pacientesDB = fopen("pacientes-db.txt", "a");
                             system("cls");
                             printf("\n\n\t\t\t  INICIANDO CADASTRO %d\n",i);
                             printf("\t\t\t  ----------------\n\n");
@@ -104,7 +106,7 @@ int main(void){
                             scanf("%d",&ano);
                             idade = anoatual - ano;
                             printf("O PACIENTE TEM %d ANOS \n",idade);
-                            printf("\n O PACIENTE TEM ALGUMA COMORBIDADE?\n 1 - SIM \n 2 - NÃO  ");
+                            printf("\n O PACIENTE TEM ALGUMA COMORBIDADE?\n 1 - SIM \n 2 - NÃO  \n");
                             scanf("%d",&opcaom);
                             if (opcaom == 1){
                                 printf("\n Qual sua morbidade?  ");
@@ -145,10 +147,11 @@ int main(void){
                             scanf("%[^\n]s",CA[i].estado);
                             printf("\n DATA DO DIAGNOSTICO: ");
                             fflush(stdin);
-                            scanf("%[^\n]s",CA[i].telefone);
+                            scanf("%[^\n]s",CA[i].data);
 
                             while(!feof(stdin) && i<=qtd){
                             fprintf(cfPtr, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep );
+                            fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
                             printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
                             scanf("%s%s%s",CA[i].estado,CA[i].cidade,&CA[i].bairro);
                             }
@@ -189,6 +192,13 @@ int main(void){
                                 printf("\n ESTADO: ");
                                 fflush(stdin);
                                 scanf("%[^\n]s",CA[i].estado);
+                                printf("\n DATA DO DIAGNOSTICO: ");
+                                fflush(stdin);
+                                scanf("%[^\n]s",CA[i].data);
+
+
+                                fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
+
 
                                 system("pause");
                                 system("cls");
