@@ -71,10 +71,10 @@ int main(void){
                     system("cls");
 
                     printf("---------------------------------------\n");
-                    printf("\t Seja Bem Vindo(a) Atendente %s\n",usuario);
+                    printf("\t Seja Bem Vindo(a) %s\n",usuario);
                     printf("---------------------------------------\n");
                     printf(" 1- CADASTRAR PACIENTE\n ");
-                    printf("2- EXIBIR DADOS DO PACIENTE\n ");
+                    printf("2- EXIBIR DADOS DO PACIENTE CADASTRADOS AGORA\n ");
                     printf("3- INFORMAÇÕES DO SISTEMA\n ");
                     printf("4- SAIR\n ");
                     printf("---------------------------------------\n\n");
@@ -150,13 +150,13 @@ int main(void){
                             scanf("%[^\n]s",CA[i].data);
 
                             while(!feof(stdin) && i<=qtd){
-                            fprintf(cfPtr, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep );
-                            fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
-                            printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
-                            scanf("%s%s%s",CA[i].estado,CA[i].cidade,&CA[i].bairro);
+                                fprintf(cfPtr, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep );
+                                fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
+                                printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
+                                scanf("%s%s%s",CA[i].estado,CA[i].cidade,&CA[i].bairro);
                             }
 
-
+                            fclose(pacientesDB);
                             fclose(cfPtr);
                             printf("\n\n\t\t");
                             system("pause");
@@ -197,9 +197,13 @@ int main(void){
                                 scanf("%[^\n]s",CA[i].data);
 
 
-                                fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
+                                 while(!feof(stdin) && i<=qtd){
+                                    fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
+                                    printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
+                                    scanf("%s%s%s",CA[i].estado,CA[i].cidade,&CA[i].bairro);
+                            }
 
-
+                                fclose(pacientesDB);
                                 system("pause");
                                 system("cls");
                             }
@@ -212,9 +216,9 @@ int main(void){
                     for (i=1;i<=qtd;i++)
                         {
                             system("cls");
-                            printf("\n\n\t\t EXIBINDO CADASTRO DO PACIÊNTE\n\n");
-                            printf("\n NOME DO PACIÊNTE: %s\n",CA[i].nome);
-                            printf("\n CPF DO PACIÊNTE: %s\n",CA[i].cpf);
+                            printf("\n\n\t\t EXIBINDO CADASTRO DO PACIENTE\n\n");
+                            printf("\n NOME DO PACIENTE: %s\n",CA[i].nome);
+                            printf("\n CPF DO PACIENTE: %s\n",CA[i].cpf);
                             printf("\n TELEFONE DO PACIÊNTE: %s\n",CA[i].telefone);
                             printf("\n EMAIL DO PACIÊNTE: %s\n",CA[i].email);
                             printf("\n CEP: %s\n",CA[i].cep);
@@ -230,14 +234,14 @@ int main(void){
 
                     case 3:
                     system("cls");
-                    printf("TRABALHO REALIZADO POR: \n\n");
+                    printf("ESSE SISTEMA FOI FEITO POR: \n\n");
                     printf("Lucas Spinelli Levi RA: \n");
                     system("pause");
                     break;
 
                     case 4:
                     system("cls");
-                    printf("\n DESEJA SAIR DO SISTEMA? %s\n",usuario);
+                    printf("\n DESEJA SAIR? %s\n",usuario);
                     printf(" 1-SIM\n 2-NÃO");
                     printf("\n\n");
                     scanf("%d",&opcao2);
