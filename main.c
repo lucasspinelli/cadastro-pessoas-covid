@@ -106,15 +106,8 @@ int main(void){
                             scanf("%d",&ano);
                             idade = anoatual - ano;
                             printf("O PACIENTE TEM %d ANOS \n",idade);
-                            printf("\n O PACIENTE TEM ALGUMA COMORBIDADE?\n 1 - SIM \n 2 - NÃO  \n");
-                            scanf("%d",&opcaom);
-                            if (opcaom == 1){
-                                printf("\n Qual sua morbidade?  ");
-                                scanf("%s",&morbidade);
-                            }
 
-                            if(idade >= 65  || opcaom == 1 ){
-                             printf("O PACIENTE FAZ PARTE DO GRUPO DE RISCO.");
+
                             printf("\n NOME DO PACIENTE: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].nome);
@@ -149,56 +142,32 @@ int main(void){
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].data);
 
-                            while(!feof(stdin) && i<=qtd){
-                                fprintf(cfPtr, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep );
-                                fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
-                                printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
-                                scanf("%s%s%s",CA[i].estado,CA[i].cidade,&CA[i].bairro);
+                            printf("\n O PACIENTE TEM ALGUMA COMORBIDADE?\n 1 - SIM \n 2 - NÃO  \n");
+                            scanf("%d",&opcaom);
+                            if (opcaom == 1){
+                                printf("\n Qual sua morbidade?  ");
+                                scanf("%s",&morbidade);
+                            }
+
+                            if(idade >= 65  || opcaom == 1 ){
+                                printf("O PACIENTE FAZ PARTE DO GRUPO DE RISCO.");
+                                while(!feof(stdin) && i<=qtd){
+                                    fprintf(cfPtr, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: %s\n IDADE: %d\n", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, idade );
+                                    fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n IDADE: %d\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data, idade );
+                                    printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
+                                    scanf("%s%s%s",CA[i].estado,CA[i].cidade,&CA[i].bairro);
                             }
 
                             fclose(pacientesDB);
                             fclose(cfPtr);
-                            printf("\n\n\t\t");
+                            printf("\n\n");
                             system("pause");
                             system("cls");
                             }
                             else {
                                 printf("O PACIENTE NÃO FAZ PARTE DO GRUPO DE RISCO.");
-
-                                printf("\n NOME DO PACIENTE: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].nome);
-                                printf("\n CPF DO PACIENTE: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].cpf);
-                                printf("\n TELEFONE DO PACIENTE: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].telefone);
-                                printf("\n CEP: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].cep);
-                                printf("\n NOME DA RUA: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].rua);
-                                printf("\n NÚMERO: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].nrua);
-                                printf("\n BAIRRO: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].bairro);
-                                printf("\n CIDADE: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].cidade);
-                                printf("\n ESTADO: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].estado);
-                                printf("\n DATA DO DIAGNOSTICO: ");
-                                fflush(stdin);
-                                scanf("%[^\n]s",CA[i].data);
-
-
                                  while(!feof(stdin) && i<=qtd){
-                                    fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data );
+                                    fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n IDADE: %d\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data, idade );
                                     printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
                                     scanf("%s%s%s",CA[i].estado,CA[i].cidade,&CA[i].bairro);
                             }
