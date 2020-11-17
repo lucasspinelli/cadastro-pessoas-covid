@@ -11,7 +11,7 @@ int main(void){
         FILE *risco; //Var para arquivos Grupo de risco
         FILE *pacientesDB; // Var para arquivos DB
 
-        int opcao,opcao1,opcao2,opcao3,opcao4, opcaom,i,qtd; // Variáveis de controle
+        int opcao,opcao1,opcao2, opcaom,i,qtd; // Variáveis de controle
 
 
     struct paciente // Lista Paciente
@@ -31,7 +31,7 @@ int main(void){
     CA[600];
     //Fim matriz
     //Váriáveis Globais
-        char usuario[100]; //Variável que guarda o nome do usuário
+        char usuario  [100]; //Variável que guarda o nome do usuário
         setlocale(LC_ALL,"");
         system("cls");
         char c;
@@ -40,8 +40,6 @@ int main(void){
         int a=10;
         int p=0;
         int verifica_senha=0;
-        int quantidade=0;
-        int option = 1;
     //Fim variáveis globais
     // Começo Login
         while(verifica_senha==0){
@@ -76,8 +74,6 @@ int main(void){
        //read_option();
        //Fim Login
 
-                while(opcao != 6)
-            {
                 while(opcao2 != 1)
                 {
                     system("color f9"); //mundando fundo e cor do sistema
@@ -85,14 +81,14 @@ int main(void){
 
                     //começo menu
                     printf("---------------------------------------\n");
-                    printf("\t Seja Bem Vindo(a) %s\n",usuario);
+                    printf("\t Olá, Bem vindo(a) ao sistema de Cadastro, %s\n",usuario);
                     printf("---------------------------------------\n");
-                    printf(" 1- CADASTRAR PACIENTE\n ");
-                    printf("2- EXIBIR DADOS DO PACIENTE CADASTRADOS NESSA SESSÃO\n ");
-                    printf("3- INFORMAÇÕES DO SISTEMA\n ");
+                    printf(" 1- Cadastrar pacientes\n ");
+                    printf("2- Pacientes Cadastrados nessa sessão\n ");
+                    printf("3- Desenvolvedores\n ");
                     printf("4- SAIR\n ");
                     printf("---------------------------------------\n\n");
-                    printf("\nESCOLHA UMA OPÇÃO: ");
+                    printf("\nEscolha uma opção: ");
                     scanf("%d",&opcao);
 
                     switch(opcao)
@@ -100,7 +96,7 @@ int main(void){
                     {
                     case 1:
                         system("cls");
-                        printf("\n\n QUANTOS CADASTROS DESEJA FAZER: "); // Controle de buffer
+                        printf("\n\n Quantos cadastros deseja fazer : "); // Controle de buffer
                         scanf("%d",&qtd);
 
                     for (i=1;i<=qtd;i++) //laço de repetição do controle
@@ -121,54 +117,54 @@ int main(void){
                             printf("\nDigite o ano de nascimento do paciente: ");
                             scanf("%d",&ano);
                             idade = anoatual - ano;
-                            printf("O PACIENTE TEM %d ANOS \n",idade);
+                            printf("O paciente tem %d anos \n",idade);
                             //Fim Validação de Idade
 
                             //Cpmeço Cadastro
-                            printf("\n NOME DO PACIENTE: ");
+                            printf("\n Nome do paciente: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].nome);
-                            printf("\n CPF DO PACIENTE: ");
+                            printf("\n CPF do paciente: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].cpf);
-                            printf("\n TELEFONE DO PACIENTE: ");
+                            printf("\n Tel: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].telefone);
-                            printf("\n EMAIL DO PACIENTE: ");
+                            printf("\n Email: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].email);
                             printf("\n CEP: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].cep);
-                            printf("\n NOME DA RUA: ");
+                            printf("\n Rua: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].rua);
-                            printf("\n NÚMERO: ");
+                            printf("\n Número da Casa: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].nrua);
-                            printf("\n BAIRRO: ");
+                            printf("\n Bairro: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].bairro);
-                            printf("\n CIDADE: ");
+                            printf("\n cidade: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].cidade);
-                            printf("\n ESTADO: ");
+                            printf("\n estado: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].estado);
-                            printf("\n DATA DO DIAGNOSTICO: ");
+                            printf("\n Data do Diagnóstico (dd/mm/aaaa): ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].data);
                             //Fim cadastro
 
-                            printf("\n O PACIENTE TEM ALGUMA COMORBIDADE?\n 1 - SIM \n 2 - NÃO  \n");
+                            printf("\n O paciente tem alguma comorbidade?\n 1 - SIM \n 2 - NÃO  \n");
                             scanf("%d",&opcaom);
                             if (opcaom == 1){
-                                printf("\n Qual sua morbidade?  ");
+                                printf("\n Qual sua comorbidade?  ");
                                 scanf("%s",&morbidade);
                             }
 
                             if(idade >= 65  || opcaom == 1 ){ // Começo Salvando Dados Grupo de risco
-                                printf("O PACIENTE FAZ PARTE DO GRUPO DE RISCO.");
+                                printf("O paciente FAZ parte do grupo de risco.\n");
                                 while(!feof(stdin) && i<=qtd){
                                     fprintf(risco, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: %s\n IDADE: %d\n", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, idade );
                                     fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n IDADE: %d\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data, idade ); // Colocamos no arquivo normal também
@@ -185,7 +181,7 @@ int main(void){
                             //Fim salvando dados Grupo de risco
                             //Começo salvando dados gerais
                             else {
-                                printf("O PACIENTE NÃO FAZ PARTE DO GRUPO DE RISCO.");
+                                printf("O paciente NÃO FAZ parte do grupo de risco.\n");
                                  while(!feof(stdin) && i<=qtd){
                                     fprintf(pacientesDB, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: \n EMAIL: %s\n DATA DO DIAGNOSTICO: %s\n IDADE: %d\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep, CA[i].email,CA[i].data, idade );
                                     printf("PRESSIONE CTRL+Z PARA ENCERRAR ");
@@ -207,7 +203,7 @@ int main(void){
                         {
                             system("cls");
                             printf("\n\n\t\t EXIBINDO CADASTRO DO PACIENTE\n\n");
-                            printf("\n\n\t\t PARA EXIBIR O PRÓXIMO TECLE ENTER\n\n");
+                            printf("\n\n\t\t para ver o próximo cadastro, tecle ENTER\n\n");
                             printf("\n NOME DO PACIENTE: %s\n",CA[i].nome);
                             printf("\n CPF DO PACIENTE: %s\n",CA[i].cpf);
                             printf("\n TELEFONE DO PACIÊNTE: %s\n",CA[i].telefone);
@@ -225,7 +221,7 @@ int main(void){
 
                     case 3: // Informações das pessoas do trabalho
                     system("cls");
-                    printf("ESSE SISTEMA FOI FEITO POR: \n\n");
+                    printf("Desenvolvedores: \n\n");
                     printf("Lucas Spinelli Levi \n");
                     system("pause");
                     break;
@@ -241,15 +237,13 @@ int main(void){
                         {
                         case 1:
                             system("cls");
-                            printf("\n\n NOS VEMOS EM BREVE %s\n",usuario);
+                            printf("\n\n Até breve %s\n",usuario);
                             system("pause");
                             return(0);
                             break;
                         }
                     }
                 }
-                break;
-            }
 
     return 0;
 }
