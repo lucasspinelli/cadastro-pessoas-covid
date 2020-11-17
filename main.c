@@ -10,7 +10,7 @@ int main(void){
     /*VARIAVEIS*/
         FILE *cfPtr;
 
-        int opcao,opcao1,opcao2,opcao3,opcao4,i,qtd;
+        int opcao,opcao1,opcao2,opcao3,opcao4, opcaom,i,qtd;
 
 
     struct paciente
@@ -104,10 +104,14 @@ int main(void){
                             scanf("%d",&ano);
                             idade = anoatual - ano;
                             printf("O PACIENTE TEM %d ANOS \n",idade);
-                            printf("\nDigite a comorbidade do Paciente (Tecle 1 caso ele não tenha): ");
-                            scanf("%s",&morbidade);
+                            printf("\n O PACIENTE TEM ALGUMA COMORBIDADE?\n 1 - SIM \n 2 - NÃO  ");
+                            scanf("%d",&opcaom);
+                            if (opcaom == 1){
+                                printf("\n Qual sua morbidade?  ");
+                                scanf("%s",&morbidade);
+                            }
 
-                            if(idade >= 65  || morbidade != "1"){
+                            if(idade >= 65  || opcaom == 1 ){
                              printf("O PACIENTE FAZ PARTE DO GRUPO DE RISCO.");
                             printf("\n NOME DO PACIENTE: ");
                             fflush(stdin);
