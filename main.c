@@ -107,7 +107,7 @@ int main(void){
                             printf("\nDigite a comorbidade do Paciente (Tecle 1 caso ele não tenha): ");
                             scanf("%s",&morbidade);
 
-                            if(idade >= 65 && morbidade != "1"){
+                            if(idade >= 65  || morbidade != "1"){
                              printf("O PACIENTE FAZ PARTE DO GRUPO DE RISCO.");
                             printf("\n NOME DO PACIENTE: ");
                             fflush(stdin);
@@ -155,7 +155,7 @@ int main(void){
                             system("pause");
                             system("cls");
                             }
-                            else if (morbidade == "1") {
+                            else {
                                 printf("O PACIENTE NÃO FAZ PARTE DO GRUPO DE RISCO.");
 
                                 printf("\n NOME DO PACIENTE: ");
