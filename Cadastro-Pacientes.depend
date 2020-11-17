@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1603848210 source:c:\users\richard hyppolito\desktop\faculdade\cadastro-pacientes\main.c
+1605486336 source:c:\users\richard hyppolito\desktop\faculdade\cadastro-pacientes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<windows.h>
 	<conio.h>
+	<locale.h>
 

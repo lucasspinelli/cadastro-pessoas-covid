@@ -16,8 +16,10 @@ int main(void){
     struct paciente
     {
         char nome[100],cpf[30],telefone[15],rua[50],
-        nrua[4],bairro[50],cidade[50],estado[50],cep[20];
+        nrua[4],bairro[50],cidade[50],estado[50],cep[20],email[30], data[15];
     }
+    CA[600];
+    CA[600];
     CA[600];
     CA[600];
     CA[600];
@@ -70,8 +72,8 @@ int main(void){
                     printf("---------------------------------------\n");
                     printf("\t Seja Bem Vindo(a) Atendente %s\n",usuario);
                     printf("---------------------------------------\n");
-                    printf(" 1- CADASTRAR PACIÊNTE\n ");
-                    printf("2- EXIBIR DADOS DO PACIÊNTE\n ");
+                    printf(" 1- CADASTRAR PACIENTE\n ");
+                    printf("2- EXIBIR DADOS DO PACIENTE\n ");
                     printf("3- INFORMAÇÕES DO SISTEMA\n ");
                     printf("4- SAIR\n ");
                     printf("---------------------------------------\n\n");
@@ -94,7 +96,7 @@ int main(void){
 
 
 
-                            cfPtr = fopen("pacientes.txt","w");
+                            cfPtr = fopen("pacientes.txt","a");
                             system("cls");
                             printf("\n\n\t\t\t  INICIANDO CADASTRO %d\n",i);
                             printf("\t\t\t  ----------------\n\n");
@@ -102,8 +104,10 @@ int main(void){
                             scanf("%d",&ano);
                             idade = anoatual - ano;
                             printf("O PACIENTE TEM %d ANOS \n",idade);
+                            printf("\nDigite a comorbidade do Paciente (Tecle 1 caso ele não tenha): ");
+                            scanf("%s",&morbidade);
 
-                            if(idade >= 65 && morbidade != ""){
+                            if(idade >= 65 && morbidade != "1"){
                              printf("O PACIENTE FAZ PARTE DO GRUPO DE RISCO.");
                             printf("\n NOME DO PACIENTE: ");
                             fflush(stdin);
@@ -114,6 +118,9 @@ int main(void){
                             printf("\n TELEFONE DO PACIENTE: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].telefone);
+                            printf("\n EMAIL DO PACIENTE: ");
+                            fflush(stdin);
+                            scanf("%[^\n]s",CA[i].email);
                             printf("\n CEP: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].cep);
@@ -132,6 +139,9 @@ int main(void){
                             printf("\n ESTADO: ");
                             fflush(stdin);
                             scanf("%[^\n]s",CA[i].estado);
+                            printf("\n DATA DO DIAGNOSTICO: ");
+                            fflush(stdin);
+                            scanf("%[^\n]s",CA[i].telefone);
 
                             while(!feof(stdin) && i<=qtd){
                             fprintf(cfPtr, "\n NOME DO PACIENTE: %s\n CPF: %s\n TELEFONE: %s\n CEP: %s\n ", CA[i].nome, CA[i].cpf,CA[i].telefone,CA[i].cep );
@@ -145,7 +155,7 @@ int main(void){
                             system("pause");
                             system("cls");
                             }
-                            else{
+                            else if (morbidade == "1") {
                                 printf("O PACIENTE NÃO FAZ PARTE DO GRUPO DE RISCO.");
 
                                 printf("\n NOME DO PACIENTE: ");
@@ -192,12 +202,14 @@ int main(void){
                             printf("\n NOME DO PACIÊNTE: %s\n",CA[i].nome);
                             printf("\n CPF DO PACIÊNTE: %s\n",CA[i].cpf);
                             printf("\n TELEFONE DO PACIÊNTE: %s\n",CA[i].telefone);
+                            printf("\n EMAIL DO PACIÊNTE: %s\n",CA[i].email);
                             printf("\n CEP: %s\n",CA[i].cep);
                             printf("\n NOME DA RUA: %s\n",CA[i].rua);
                             printf("\n NÚMERO: %s\n",CA[i].nrua);
                             printf("\n BAIRRO: %s\n",CA[i].bairro);
                             printf("\n CIDADE: %s\n",CA[i].cidade);
                             printf("\n ESTADO: %s\n",CA[i].estado);
+                            printf("\n DATA DO DIAGNOSTICO: %s\n",CA[i].data);
                             system("pause");
                         }
                          break;
@@ -220,7 +232,7 @@ int main(void){
                         {
                         case 1:
                             system("cls");
-                            printf("\n\n ATÉ MAIS %s\n",usuario);
+                            printf("\n\n NOS VEMOS EM BREVE %s\n",usuario);
                             system("pause");
                             return(0);
                             break;
